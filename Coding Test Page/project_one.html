@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th{
+            background-color: #999999;
+            text-align: center
+            padding: 0px 5px ;
+        }
+        td{
+            padding: 5px;
+        }
+    </style>
+    <title>Project 1</title>
+</head>
+<body>
+<script type="text/javascript">
+        var table_data = [
+        {first_name : 'Rose',   last_name : 'Tyler',   home : 'Earth' },
+        {first_name : 'Zoe',    last_name : 'Heriot',  home : 'Space Station W3'},
+        {first_name : 'Jo',     last_name : 'Grant',   home : 'Earth'},
+        {first_name : 'Leela',  last_name : null,      home : 'Unspecified'},
+        {first_name : 'Romana', last_name : null,      home : 'Gallifrey'},
+        {first_name : 'Clara',  last_name : 'Oswald',  home : 'Earth'},
+        {first_name : 'Adric',  last_name : null,      home : 'Alzarius'},
+        {first_name : 'Susan',  last_name : 'Foreman', home : 'Gallifrey'}];
+/*
+        // create table here
+        var d1 = document.getElementById('Location1');
+        d1.insertAdjacentHTML('afterbegin', '<table>');
+        d1.insertAdjacentHTML('beforeend', '<tr><th>first_name</th><th>last_name</th><th>home</th></tr>')
+        //Run through loop and extract each item.
+        
+        table_data.forEach(function)
+        d1.insertAdjacentHTML('beforeend', '</table>');
+*/
+    tableMaker = o => { var keys = Object.keys(o[0]),
+                        rowMaker = (a,t) => a.reduce((p,c,i,a) => p + (i === a.length-1 ? "<" + t + ">" + c + "</" + t + "></tr>" : "<" + t + ">" + c + "</" + t + ">"),"<tr>"),
+                        rows = o.reduce((r,c) => r + rowMaker(keys.reduce((v,k) => v.concat(c[k]),[]),"td"),
+                        rowMaker(keys,"th"));
+                   return "<table>" + rows + "</table>";
+                  };
+
+    document.write(tableMaker(table_data));
+    </script>
+</body>
+</html>
